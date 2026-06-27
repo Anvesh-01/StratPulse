@@ -32,15 +32,14 @@ export default function DashboardPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
           {/* Brand */}
           <div className="flex items-center gap-3 shrink-0">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shadow-md hover-lift">
-              <Radio size={18} className="text-white" />
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-lg font-extrabold text-gradient">
-                StratPulse
-              </span>
-              <span className="text-xs text-slate-400 dark:text-slate-500 ml-0.5 hidden md:inline">War Room</span>
-            </div>
+            <Image
+              src="/logo.png"
+              alt="StratPulse Logo"
+              width={140}
+              height={79}
+              className="h-9 w-auto object-contain dark:brightness-100 brightness-90"
+              priority
+            />
           </div>
 
           {/* Status indicator */}

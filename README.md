@@ -1,4 +1,4 @@
-# StratPulse
+# <p align="center"><img src="public/logo.png" alt="StratPulse Logo" width="400" /></p>
 
 StratPulse is a real-time, AI-powered Brand Sentiment Analysis and Strategy Generator. It empowers marketing teams, PR professionals, and brand managers to monitor news coverage, evaluate public sentiment instantly, and generate immediate, actionable response strategies using Google's Gemini models.
 
