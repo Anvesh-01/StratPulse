@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StratPulse
 
-## Getting Started
+StratPulse is a real-time, AI-powered Brand Sentiment Analysis and Strategy Generator. It empowers marketing teams, PR professionals, and brand managers to monitor news coverage, evaluate public sentiment instantly, and generate immediate, actionable response strategies using Google's Gemini models.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🌟 Key Features & Advantages
+
+- **Real-Time News Monitoring**: Integrates with GNews API to fetch the latest articles, headlines, and coverages for any brand.
+- **AI-Powered Sentiment Engine**: Leverages `gemini-2.5-flash` to evaluate complex articles and headlines, assigning precise sentiment scores and mood classifications (Positive, Neutral, Negative).
+- **Automated Crisis & Opportunity Strategy**: Instantly drafts SMART goals, recommended actions, and executive summaries for critical news updates.
+- **Ready-to-Post Social Copy**: Generates customized copy for Twitter/X (with character limits), LinkedIn (professional tone), and Instagram (complete with trending hashtags) based on the news mood.
+- **Secure Authentication**: Built-in authentication with NextAuth.js to protect sensitive brand dashboards.
+- **Modern UI/UX**: Includes a dark/light mode toggle, dynamic sentiment timelines, and clean data visualizations.
+
+---
+
+## ⚙️ How it Works (Workflow)
+
+```mermaid
+graph TD
+    A[User enters Brand name] --> B[GNews API fetches latest news articles]
+    B --> C[Gemini AI analyzes sentiment & moods]
+    C --> D[Dashboard renders sentiment timeline & article table]
+    D --> E[User clicks on any article to generate response strategy]
+    E --> F[Gemini AI generates SMART Goal, Social Copy, and Immediate Actions]
+    F --> G[Marketing Team executes the generated plan]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Brand Search**: User inputs the target brand name in the StratPulse dashboard.
+2. **Data Ingestion**: The system queries the GNews API, bringing back the latest relevant articles sorted by date.
+3. **Sentiment Extraction**: The headlines are parsed and sent to Gemini, which returns structured JSON detailing sentiment scores and moods.
+4. **Data Visualization**: Headlines are listed with color-coded sentiment tags alongside a timeline highlighting trend directions.
+5. **Strategy Generation**: For critical or negative news, users can trigger the strategy engine. Gemini constructs an immediate response framework including SMART goals and platform-specific social updates.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 💡 Practical Uses
 
-## Learn More
+- **Crisis Management**: Instantly spot negative press and auto-generate mitigation strategies, messaging guidelines, and immediate team actions.
+- **Brand Reputation Tracking**: Track how product launches, PR campaigns, or executive announcements affect public sentiment.
+- **Competitive Intelligence**: Analyze competitor brands to understand where they are gaining positive exposure or suffering public relations setbacks.
+- **Content Marketing & Social Alignment**: Quick creation of relevant social media posts aligned with active news trends.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Getting Started
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Prerequisites
 
-## Deploy on Vercel
+Create a `.env.local` file in the root directory and configure the following environment variables:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```env
+NEXTAUTH_SECRET=your_nextauth_secret
+NEXTAUTH_URL=http://localhost:3000
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GNEWS_API_KEY=your_gnews_api_key
+GEMINI_API_KEY=your_gemini_api_key
+```
+
+### Installation
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
