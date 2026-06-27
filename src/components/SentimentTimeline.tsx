@@ -85,18 +85,18 @@ export function SentimentTimeline({ data, onNodeClick }: SentimentTimelineProps)
   }));
 
   return (
-    <div className="rounded-3xl border border-slate-200 dark:border-slate-700/50 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm card-elevated p-7">
-      <div className="flex items-center justify-between mb-7">
+    <div className="rounded-3xl border-2 border-slate-200 dark:border-slate-700/60 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl card-elevated card-hover p-8 animate-in fade-in slide-in-from-bottom-4 duration-700 transition-all">
+      <div className="flex items-center justify-between mb-8">
         <div>
-          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">📈 Sentiment Timeline</h2>
-          <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 font-medium">
-            Click any <span className="text-red-600 dark:text-red-400 font-bold">red node</span> to generate a strategy
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">📈 Sentiment Timeline</h2>
+          <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 font-medium">
+            Click any <span className="text-red-600 dark:text-red-400 font-bold">red node</span> for AI strategy
           </p>
         </div>
-        <div className="flex items-center gap-5 text-xs font-semibold hidden sm:flex">
-          <span className="flex items-center gap-2"><span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block" />Positive</span>
-          <span className="flex items-center gap-2"><span className="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block" />Neutral</span>
-          <span className="flex items-center gap-2"><span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" />Negative</span>
+        <div className="flex items-center gap-6 text-xs font-bold hidden sm:flex">
+          <span className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50"><span className="w-3 h-3 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/40" />Positive</span>
+          <span className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50"><span className="w-3 h-3 rounded-full bg-amber-400 shadow-lg shadow-amber-400/40" />Neutral</span>
+          <span className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800/50"><span className="w-3 h-3 rounded-full bg-red-500 shadow-lg shadow-red-500/40 animate-pulse-glow" />Negative</span>
         </div>
       </div>
 
