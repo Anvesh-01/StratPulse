@@ -72,10 +72,10 @@ export function SentimentTable({ data, onRowClick }: SentimentTableProps) {
   const headerClass = 'text-left text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 px-4 py-3 cursor-pointer hover:text-slate-800 dark:hover:text-slate-200 transition-colors select-none';
 
   return (
-    <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm shadow-sm overflow-hidden">
-      <div className="p-5 border-b border-slate-200 dark:border-slate-800">
-        <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Headlines Analysis</h2>
-        <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+    <div className="rounded-3xl border border-slate-200 dark:border-slate-700/50 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm card-elevated overflow-hidden">
+      <div className="p-7 border-b border-slate-200 dark:border-slate-700/50">
+        <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">📰 Headlines Analysis</h2>
+        <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 font-medium">
           {data.length} articles • Click any row to generate a strategy
         </p>
       </div>
@@ -83,7 +83,7 @@ export function SentimentTable({ data, onRowClick }: SentimentTableProps) {
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/30">
+            <tr className="border-b border-slate-200 dark:border-slate-700/50 bg-slate-50/60 dark:bg-slate-900/40">
               <th className={headerClass} onClick={() => toggleSort('headline')}>
                 <span className="flex items-center gap-1">Headline <SortIcon col="headline" /></span>
               </th>
@@ -99,7 +99,7 @@ export function SentimentTable({ data, onRowClick }: SentimentTableProps) {
               <th className="px-4 py-3 w-16" />
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+          <tbody className="divide-y divide-slate-100 dark:divide-slate-700/40">
             {sorted.map((item) => {
               const isNeg = item.sentiment_score <= -0.2;
               return (
@@ -108,40 +108,40 @@ export function SentimentTable({ data, onRowClick }: SentimentTableProps) {
                   id={`headline-row-${item.id}`}
                   onClick={() => onRowClick(item)}
                   className={clsx(
-                    'cursor-pointer transition-colors group',
+                    'cursor-pointer transition-all duration-200 group',
                     isNeg
-                      ? 'hover:bg-red-50 dark:hover:bg-red-950/30'
-                      : 'hover:bg-slate-50 dark:hover:bg-slate-700/30'
+                      ? 'hover:bg-red-50/60 dark:hover:bg-red-950/20'
+                      : 'hover:bg-slate-50/60 dark:hover:bg-slate-700/20'
                   )}
                 >
-                  <td className="px-4 py-3 max-w-xs">
-                    <p className="line-clamp-2 text-slate-800 dark:text-slate-200 font-medium leading-snug group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
+                  <td className="px-6 py-4 max-w-xs">
+                    <p className="line-clamp-2 text-slate-800 dark:text-slate-200 font-semibold leading-snug group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
                       {item.headline}
                     </p>
                     {isNeg && (
-                      <span className="inline-flex items-center gap-1 text-xs text-red-500 font-semibold mt-1">
-                        <Zap size={10} /> Strategy available
+                      <span className="inline-flex items-center gap-1 text-xs text-red-600 dark:text-red-400 font-bold mt-2">
+                        <Zap size={11} /> Strategy available
                       </span>
                     )}
                   </td>
-                  <td className="px-4 py-3 whitespace-nowrap">
+                  <td className="px-6 py-4 whitespace-nowrap">
                     <MoodBadge mood={item.mood} score={item.sentiment_score} />
                   </td>
-                  <td className="px-4 py-3 hidden sm:table-cell text-slate-600 dark:text-slate-400 whitespace-nowrap">
+                  <td className="px-6 py-4 hidden sm:table-cell text-slate-600 dark:text-slate-400 whitespace-nowrap text-sm font-medium">
                     {item.source}
                   </td>
-                  <td className="px-4 py-3 hidden md:table-cell text-slate-500 dark:text-slate-400 whitespace-nowrap tabular-nums text-xs">
+                  <td className="px-6 py-4 hidden md:table-cell text-slate-500 dark:text-slate-400 whitespace-nowrap tabular-nums text-xs font-medium">
                     {format(new Date(item.publishedAt), 'MMM d, HH:mm')}
                   </td>
-                  <td className="px-4 py-3">
+                  <td className="px-6 py-4">
                     <a
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-blue-100 dark:hover:bg-blue-900/50 flex items-center justify-center text-slate-400 hover:text-blue-500 transition-all"
+                      className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700/60 hover:bg-blue-100 dark:hover:bg-blue-900/40 flex items-center justify-center text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 hover-lift"
                     >
-                      <ExternalLink size={12} />
+                      <ExternalLink size={14} />
                     </a>
                   </td>
                 </tr>

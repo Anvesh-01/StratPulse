@@ -108,55 +108,55 @@ export function StrategyModal({ isOpen, article, brand, onClose }: StrategyModal
       <div
         className={clsx(
           'relative w-full max-w-2xl max-h-[90vh] overflow-hidden',
-          'rounded-2xl shadow-2xl',
+          'rounded-3xl shadow-2xl',
           'bg-white dark:bg-slate-900',
-          'border border-slate-200 dark:border-slate-700',
+          'border border-slate-200 dark:border-slate-700/50',
           'flex flex-col',
           'animate-in slide-in-from-bottom-4 duration-300',
         )}
       >
         {/* Header */}
-        <div className="flex items-start gap-3 p-6 border-b border-slate-200 dark:border-slate-800 shrink-0">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shrink-0">
-            <Target size={20} className="text-white" />
+        <div className="flex items-start gap-4 p-8 border-b border-slate-200 dark:border-slate-800/50 shrink-0 bg-gradient-to-r from-blue-50/50 to-cyan-50/50 dark:from-blue-950/20 dark:to-cyan-950/20">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shrink-0 shadow-lg">
+            <Target size={24} className="text-white" />
           </div>
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 flex-wrap">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">SMART Strategy</h2>
+            <div className="flex items-center gap-3 flex-wrap">
+              <h2 className="text-xl font-extrabold text-slate-900 dark:text-slate-100">🎯 SMART Strategy</h2>
               {strategy && (
-                <span className={clsx('text-xs font-bold px-2 py-0.5 rounded-full border', urgencyConf?.bg, urgencyConf?.color, urgencyConf?.border)}>
-                  {urgencyConf?.icon} {strategy.urgency} Priority
+                <span className={clsx('text-xs font-bold px-3 py-1 rounded-full border-2', urgencyConf?.bg, urgencyConf?.color, urgencyConf?.border)}>
+                  {urgencyConf?.icon} {strategy.urgency}
                 </span>
               )}
             </div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 truncate">
-              <TrendingDown size={12} className="inline text-red-500 mr-1" />
+            <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 truncate font-medium">
+              <TrendingDown size={12} className="inline text-red-500 mr-1.5" />
               {article?.headline}
             </p>
           </div>
           <button
             onClick={onClose}
             id="close-strategy-modal"
-            className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors"
+            className="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-all duration-200"
           >
-            <X size={18} />
+            <X size={20} />
           </button>
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-6">
+        <div className="flex-1 overflow-y-auto p-8">
           {loading && (
-            <div className="flex flex-col items-center justify-center py-12 gap-4">
-              <div className="relative w-16 h-16">
-                <div className="absolute inset-0 rounded-full border-4 border-blue-200 dark:border-blue-900" />
+            <div className="flex flex-col items-center justify-center py-16 gap-5">
+              <div className="relative w-20 h-20">
+                <div className="absolute inset-0 rounded-full border-4 border-blue-200 dark:border-blue-900/40" />
                 <div className="absolute inset-0 rounded-full border-4 border-blue-500 border-t-transparent animate-spin" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Zap size={18} className="text-blue-500" />
+                  <Zap size={24} className="text-blue-500" />
                 </div>
               </div>
               <div className="text-center">
-                <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Generating Strategy...</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Gemini AI is crafting your response plan</p>
+                <p className="text-base font-bold text-slate-800 dark:text-slate-200">Generating Strategy...</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">Gemini AI is crafting your response plan</p>
               </div>
             </div>
           )}
@@ -172,26 +172,26 @@ export function StrategyModal({ isOpen, article, brand, onClose }: StrategyModal
           {strategy && (
             <div className="space-y-6">
               {/* Summary */}
-              <div className={clsx('p-4 rounded-xl border', urgencyConf?.bg, urgencyConf?.border)}>
-                <p className={clsx('text-sm font-semibold', urgencyConf?.color)}>Executive Summary</p>
-                <p className="text-sm text-slate-700 dark:text-slate-300 mt-1">{strategy.summary}</p>
+              <div className={clsx('p-5 rounded-2xl border-2', urgencyConf?.bg, urgencyConf?.border)}>
+                <p className={clsx('text-sm font-extrabold uppercase tracking-wider', urgencyConf?.color)}>📋 Executive Summary</p>
+                <p className="text-base text-slate-700 dark:text-slate-300 mt-3 leading-relaxed font-medium">{strategy.summary}</p>
               </div>
 
               {/* Tabs */}
-              <div className="flex gap-1 bg-slate-100 dark:bg-slate-800 rounded-xl p-1">
+              <div className="flex gap-2 bg-slate-100 dark:bg-slate-800/60 rounded-xl p-1.5">
                 {(['smart', 'social', 'actions'] as const).map((tab) => (
                   <button
                     key={tab}
                     id={`strategy-tab-${tab}`}
                     onClick={() => setActiveTab(tab)}
                     className={clsx(
-                      'flex-1 py-2 px-3 text-sm font-medium rounded-lg transition-all',
+                      'flex-1 py-2.5 px-4 text-sm font-bold rounded-lg transition-all duration-200',
                       activeTab === tab
-                        ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-sm'
-                        : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'
+                        ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-md'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-700/30'
                     )}
                   >
-                    {tab === 'smart' ? '🎯 SMART Goal' : tab === 'social' ? '📱 Social Copy' : '⚡ Actions'}
+                    {tab === 'smart' ? '🎯 SMART' : tab === 'social' ? '📱 Social' : '⚡ Actions'}
                   </button>
                 ))}
               </div>
