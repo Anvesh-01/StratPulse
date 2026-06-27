@@ -85,18 +85,18 @@ export function SentimentTimeline({ data, onNodeClick }: SentimentTimelineProps)
   }));
 
   return (
-    <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-6 shadow-sm">
-      <div className="flex items-center justify-between mb-6">
+    <div className="rounded-3xl border border-slate-200 dark:border-slate-700/50 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm card-elevated p-7">
+      <div className="flex items-center justify-between mb-7">
         <div>
-          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Sentiment Timeline</h2>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-            Click any <span className="text-red-500 font-semibold">red node</span> to generate a SMART strategy
+          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">📈 Sentiment Timeline</h2>
+          <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 font-medium">
+            Click any <span className="text-red-600 dark:text-red-400 font-bold">red node</span> to generate a strategy
           </p>
         </div>
-        <div className="flex items-center gap-4 text-xs">
-          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-emerald-500 inline-block" />Positive</span>
-          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-amber-400 inline-block" />Neutral</span>
-          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-red-500 inline-block" />Negative</span>
+        <div className="flex items-center gap-5 text-xs font-semibold hidden sm:flex">
+          <span className="flex items-center gap-2"><span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block" />Positive</span>
+          <span className="flex items-center gap-2"><span className="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block" />Neutral</span>
+          <span className="flex items-center gap-2"><span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" />Negative</span>
         </div>
       </div>
 
